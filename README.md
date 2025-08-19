@@ -2,6 +2,8 @@
 
 Get insights into the flat share market in Berlin!
 
+> https://devwhyqueue.github.io/wg-gesucht-stats/notebooks/flat_ads.html
+
 # Prerequisites
 
 - Venv: `python -m pip install --user virtualenv`
