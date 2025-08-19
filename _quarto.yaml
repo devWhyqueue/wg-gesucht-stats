@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "WG Gesucht Stats"
+  navbar:
+    left:
+      - text: Home
+        href: notebooks/index.ipynb
+      - text: Basic Stats
+        href: notebooks/flat_ads.ipynb
+      - text: Deep Dive
+        href: notebooks/flat_ad_details.ipynb
+
+format:
+  html:
+    code-fold: true
+    toc: true

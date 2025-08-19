@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Diving in deeper – WG Gesucht Stats</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">WG Gesucht Stats</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../notebooks/index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../notebooks/flat_ads.html"> 
+<span class="menu-text">Basic Stats</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../notebooks/flat_ad_details.html" aria-current="page"> 
+<span class="menu-text">Deep Dive</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#get-the-data" id="toc-get-the-data" class="nav-link active" data-scroll-target="#get-the-data">Get the data</a></li>
+  <li><a href="#age" id="toc-age" class="nav-link" data-scroll-target="#age">Age</a></li>
+  <li><a href="#nlp" id="toc-nlp" class="nav-link" data-scroll-target="#nlp">NLP</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Diving in deeper</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="e1c2d321" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dataclasses <span class="im">import</span> asdict</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm.contrib.concurrent <span class="im">import</span> thread_map</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re, spacy</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> TruncatedSVD</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> umap</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hdbscan</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer, AutoModelForSequenceClassification, TextClassificationPipeline</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm.auto <span class="im">import</span> tqdm</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud, STOPWORDS</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wggesuchtstats.scraper <span class="im">import</span> get_flat_details</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># logging.getLogger("backoff").setLevel(logging.</span><span class="al">WARNING</span><span class="co">) </span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>logging.getLogger(<span class="st">"urllib3.connectionpool"</span>).setLevel(logging.WARNING)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    level<span class="op">=</span>logging.INFO,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(asctime)s</span><span class="st"> - </span><span class="sc">%(name)s</span><span class="st"> - </span><span class="sc">%(levelname)s</span><span class="st"> - </span><span class="sc">%(message)s</span><span class="st">"</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    handlers<span class="op">=</span>[logging.StreamHandler(sys.stdout)]</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>tqdm.pandas()</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>False</code></pre>
+</div>
+</div>
+<section id="get-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="get-the-data">Get the data</h2>
+<div id="2088b42f" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Load &amp; fix URLs ---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../data/flat_ads.csv"</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"url"</span>] <span class="op">=</span> df[<span class="st">"url"</span>].<span class="bu">apply</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> u: u <span class="cf">if</span> <span class="bu">str</span>(u).startswith(<span class="st">"http"</span>) <span class="cf">else</span> <span class="ss">f"https://www.wg-gesucht.de/</span><span class="sc">{</span><span class="bu">str</span>(u)<span class="sc">.</span>lstrip(<span class="st">'/'</span>)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"details"</span>] <span class="op">=</span> thread_map(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    get_flat_details,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"url"</span>].tolist(),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    max_workers<span class="op">=</span><span class="dv">64</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    desc<span class="op">=</span><span class="st">"Fetching ads"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    chunksize<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Expand dataclass fields ---</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>details_df <span class="op">=</span> df[<span class="st">"details"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> d: asdict(d) <span class="cf">if</span> d <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> {})</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.join(pd.json_normalize(details_df)).drop(columns<span class="op">=</span>[<span class="st">"details"</span>])</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Save ---</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"../data/flat_ads_with_details_new.csv"</span>, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Fetching ads: 100%|██████████| 1766/1766 [07:59&lt;00:00,  3.68it/s]</code></pre>
+</div>
+</div>
+<div id="2280729c" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../data/flat_ads_with_details.csv"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">url</th>
+<th data-quarto-table-cell-role="th">published</th>
+<th data-quarto-table-cell-role="th">rent</th>
+<th data-quarto-table-cell-role="th">size</th>
+<th data-quarto-table-cell-role="th">district</th>
+<th data-quarto-table-cell-role="th">female_inhabitants</th>
+<th data-quarto-table-cell-role="th">male_inhabitants</th>
+<th data-quarto-table-cell-role="th">diverse_inhabitants</th>
+<th data-quarto-table-cell-role="th">total_inhabitants</th>
+<th data-quarto-table-cell-role="th">headline</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">street</th>
+<th data-quarto-table-cell-role="th">zip_code</th>
+<th data-quarto-table-cell-role="th">available_from</th>
+<th data-quarto-table-cell-role="th">available_until</th>
+<th data-quarto-table-cell-role="th">age_min</th>
+<th data-quarto-table-cell-role="th">age_max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>https://www.wg-gesucht.de/wg-zimmer-in-Berlin-...</td>
+<td>2025-08-16T00:00:00</td>
+<td>550</td>
+<td>16</td>
+<td>Prenzlauer Berg</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>NUR Berufstätige/Praktikanten: 2-er WG in Pre...</td>
+<td>16qm,3m Zimmerhöhe, Südosten, 4.OG, sehr hell ...</td>
+<td>Danziger Str</td>
+<td>10407.0</td>
+<td>2025-09-01</td>
+<td>2025-12-01</td>
+<td>49.0</td>
+<td>49.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>https://www.wg-gesucht.de/wg-zimmer-in-Berlin-...</td>
+<td>2025-08-16T00:00:00</td>
+<td>999</td>
+<td>20</td>
+<td>Prenzlauer Berg</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>4</td>
+<td>URBANELITE.COM // Keine Kaution! (keine Absich...</td>
+<td>- &gt; WWW. URBANELITE.COM \n\n WIR ARE: \n Wir s...</td>
+<td>Schönhauser Allee</td>
+<td>10439.0</td>
+<td>2025-08-16</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>https://www.wg-gesucht.de/wg-zimmer-in-Berlin-...</td>
+<td>2025-08-16T00:00:00</td>
+<td>650</td>
+<td>20</td>
+<td>Prenzlauer Berg</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>Bright Room for Sublet in Prenzlauer Berg (6 M...</td>
+<td>Ich biete meine ca. 20 m2 Zimmer in einer reno...</td>
+<td>Dunckerstraße</td>
+<td>10439.0</td>
+<td>2025-10-01</td>
+<td>2026-03-31</td>
+<td>35.0</td>
+<td>40.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>https://www.wg-gesucht.de/wg-zimmer-in-Berlin-...</td>
+<td>2025-08-15T00:00:00</td>
+<td>750</td>
+<td>16</td>
+<td>Friedrichshain</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>Gemütliches Sonnenzimmer in Fshain</td>
+<td>Mieten Mein schön sonniges Zimmer – 2 Monate (...</td>
+<td>Bosestraße 6A</td>
+<td>10245.0</td>
+<td>2025-09-01</td>
+<td>2026-04-01</td>
+<td>30.0</td>
+<td>36.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>https://www.wg-gesucht.de/wg-zimmer-in-Berlin-...</td>
+<td>2025-07-14T00:00:00</td>
+<td>900</td>
+<td>20</td>
+<td>Kreuzberg</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>WG room 20m2 Mehringdamm</td>
+<td>Zimmer verfügbar ab September. \n Letztendlich...</td>
+<td>Großbeerenstraße 28</td>
+<td>10965.0</td>
+<td>2025-08-15</td>
+<td>NaN</td>
+<td>28.0</td>
+<td>28.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="053c2a7d" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">"headline"</span>].notna()] </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>3747</code></pre>
+</div>
+</div>
+</section>
+<section id="age" class="level2">
+<h2 class="anchored" data-anchor-id="age">Age</h2>
+<div id="f216c16c" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_stats(series):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"min"</span>: series.<span class="bu">min</span>(),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"max"</span>: series.<span class="bu">max</span>(),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: series.mean(),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"median"</span>: series.median()</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>age_min_stats <span class="op">=</span> get_stats(df[<span class="st">"age_min"</span>].dropna())</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>age_max_stats <span class="op">=</span> get_stats(df[<span class="st">"age_max"</span>].dropna())</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram with legend showing stats</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">5</span>))</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">"age_min"</span>], color<span class="op">=</span><span class="st">"blue"</span>, kde<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"age_min"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">"age_max"</span>], color<span class="op">=</span><span class="st">"red"</span>, kde<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"age_max"</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Add stats to legend</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>legend_text <span class="op">=</span> [</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"age_min: min:</span><span class="sc">{</span>age_min_stats[<span class="st">'min'</span>]<span class="sc">}</span><span class="ss">, max:</span><span class="sc">{</span>age_min_stats[<span class="st">'max'</span>]<span class="sc">}</span><span class="ss">, "</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"mean:</span><span class="sc">{</span>age_min_stats[<span class="st">'mean'</span>]<span class="sc">:.1f}</span><span class="ss">, median:</span><span class="sc">{</span>age_min_stats[<span class="st">'median'</span>]<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"age_max: min:</span><span class="sc">{</span>age_max_stats[<span class="st">'min'</span>]<span class="sc">}</span><span class="ss">, max:</span><span class="sc">{</span>age_max_stats[<span class="st">'max'</span>]<span class="sc">}</span><span class="ss">, "</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"mean:</span><span class="sc">{</span>age_max_stats[<span class="st">'mean'</span>]<span class="sc">:.1f}</span><span class="ss">, median:</span><span class="sc">{</span>age_max_stats[<span class="st">'median'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>plt.legend(legend_text)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Min/max age of inhabitants"</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="flat_ad_details_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="202c71ee" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_cleaned <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">"age_min"</span>,<span class="st">"age_max"</span>])</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_cleaned[[<span class="st">"age_min"</span>,<span class="st">"age_max"</span>]]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Fit KMeans ---</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>best_k <span class="op">=</span> <span class="dv">3</span>  <span class="co"># &lt;- set this after elbow method</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>best_k, random_state<span class="op">=</span><span class="dv">42</span>, n_init<span class="op">=</span><span class="st">"auto"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>df_cleaned[<span class="st">"cluster"</span>] <span class="op">=</span> kmeans.fit_predict(X)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>cluster_names <span class="op">=</span> {</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>: <span class="st">"Students/Young Professionals"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>: <span class="st">"Cross-generational"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>: <span class="st">"Working-age"</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Map numeric cluster labels to names</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>df_cleaned[<span class="st">"cluster_name"</span>] <span class="op">=</span> df_cleaned[<span class="st">"cluster"</span>].<span class="bu">map</span>(cluster_names)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Cluster sizes ---</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>cluster_counts <span class="op">=</span> df_cleaned[<span class="st">"cluster"</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>).sort_index() <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Scatterplot ---</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">6</span>))</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df_cleaned, x<span class="op">=</span><span class="st">"age_min"</span>, y<span class="op">=</span><span class="st">"age_max"</span>, hue<span class="op">=</span><span class="st">"cluster_name"</span>, palette<span class="op">=</span><span class="st">"Set2"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co"># cluster centers</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> kmeans.cluster_centers_</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>plt.scatter(centers[:,<span class="dv">0</span>], centers[:,<span class="dv">1</span>], c<span class="op">=</span><span class="st">"black"</span>, s<span class="op">=</span><span class="dv">150</span>, marker<span class="op">=</span><span class="st">"X"</span>, label<span class="op">=</span><span class="st">"Centers"</span>)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co"># annotate percentages</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, (x, y) <span class="kw">in</span> <span class="bu">enumerate</span>(centers):</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    pct <span class="op">=</span> cluster_counts[idx]</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    plt.text(x, y<span class="op">+</span><span class="dv">1</span>, <span class="ss">f"</span><span class="sc">{</span>pct<span class="sc">:.1f}</span><span class="ss">%"</span>, ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"bottom"</span>, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">"bold"</span>, color<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">0</span>,<span class="dv">60</span>],[<span class="dv">0</span>,<span class="dv">60</span>], color<span class="op">=</span><span class="st">"gray"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"age_min"</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"age_max"</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"KMeans Clusters of WG Ads (k=</span><span class="sc">{</span>best_k<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\Yannik\AppData\Local\Temp\ipykernel_12704\2865640186.py:7: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_cleaned["cluster"] = kmeans.fit_predict(X)
+C:\Users\Yannik\AppData\Local\Temp\ipykernel_12704\2865640186.py:16: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_cleaned["cluster_name"] = df_cleaned["cluster"].map(cluster_names)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="flat_ad_details_files/figure-html/cell-7-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nlp" class="level2">
+<h2 class="anchored" data-anchor-id="nlp">NLP</h2>
+<div id="1865a0d5" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"text"</span>] <span class="op">=</span> (df[<span class="st">"headline"</span>].fillna(<span class="st">""</span>) <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> df[<span class="st">"description"</span>].fillna(<span class="st">""</span>)).<span class="bu">str</span>.strip()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_nlp <span class="op">=</span> df[df[<span class="st">"text"</span>].<span class="bu">str</span>.<span class="bu">len</span>() <span class="op">&gt;</span> <span class="dv">0</span>].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="44c56369" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>nlp <span class="op">=</span> spacy.load(<span class="st">"de_core_news_sm"</span>, disable<span class="op">=</span>[<span class="st">"parser"</span>])</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>STOP_EXTRA <span class="op">=</span> <span class="bu">set</span>(line.strip() <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">open</span>(<span class="st">"../data/stop_words.txt"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_txt(s: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> s.lower()</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> re.sub(<span class="vs">r"</span><span class="dv">\s</span><span class="op">+</span><span class="vs">"</span>, <span class="st">" "</span>, s)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> re.sub(<span class="vs">r"http</span><span class="dv">\S</span><span class="op">+</span><span class="cf">|</span><span class="vs">www</span><span class="ch">\.</span><span class="dv">\S</span><span class="op">+</span><span class="vs">"</span>, <span class="st">" "</span>, s)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> re.sub(<span class="vs">r"</span><span class="pp">[</span><span class="dv">\d</span><span class="pp">_]</span><span class="op">+</span><span class="vs">"</span>, <span class="st">" "</span>, s)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s.strip()</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>df_nlp[<span class="st">"text_clean"</span>] <span class="op">=</span> df_nlp[<span class="st">"text"</span>].progress_apply(clean_txt)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> df_nlp[<span class="st">"text_clean"</span>].tolist()</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>lemmas <span class="op">=</span> []</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> doc <span class="kw">in</span> tqdm(nlp.pipe(texts, batch_size<span class="op">=</span><span class="dv">64</span>), total<span class="op">=</span><span class="bu">len</span>(texts), desc<span class="op">=</span><span class="st">"lemmatizing"</span>):</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    toks <span class="op">=</span> [</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        t.lemma_.lower()</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> t <span class="kw">in</span> doc</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> t.is_alpha <span class="kw">and</span> <span class="kw">not</span> t.is_stop <span class="kw">and</span> <span class="bu">len</span>(t.lemma_) <span class="op">&gt;=</span> <span class="dv">3</span> <span class="kw">and</span> t.lemma_.lower() <span class="kw">not</span> <span class="kw">in</span> STOP_EXTRA</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    lemmas.append(<span class="st">" "</span>.join(toks))</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>df_nlp[<span class="st">"text_lem"</span>] <span class="op">=</span> lemmas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 3747/3747 [00:00&lt;00:00, 3882.27it/s]
+lemmatizing: 100%|██████████| 3747/3747 [04:03&lt;00:00, 15.38it/s]</code></pre>
+</div>
+</div>
+<div id="ed7fa0e3" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> top_tfidf_terms(texts, n<span class="op">=</span><span class="dv">20</span>, ngram<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), min_df<span class="op">=</span><span class="dv">5</span>, max_df<span class="op">=</span><span class="fl">0.6</span>):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> TfidfVectorizer(ngram_range<span class="op">=</span>ngram, min_df<span class="op">=</span>min_df, max_df<span class="op">=</span>max_df)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> v.fit_transform(texts)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    mean_scores <span class="op">=</span> np.asarray(X.mean(axis<span class="op">=</span><span class="dv">0</span>)).ravel()</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> mean_scores.argsort()[::<span class="op">-</span><span class="dv">1</span>][:n]</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">"term"</span>: np.array(v.get_feature_names_out())[idx],</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"tfidf"</span>: mean_scores[idx]})</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>top_uni <span class="op">=</span> top_tfidf_terms(df_nlp[<span class="st">"text_lem"</span>], n<span class="op">=</span><span class="dv">25</span>, ngram<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>top_bi  <span class="op">=</span> top_tfidf_terms(df_nlp[<span class="st">"text_lem"</span>], n<span class="op">=</span><span class="dv">25</span>, ngram<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(top_uni.head(<span class="dv">10</span>))<span class="op">;</span> <span class="bu">print</span>(top_bi.head(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       term     tfidf
+0     ruhig  0.028846
+1     schön  0.027227
+2     küche  0.022431
+3    balkon  0.021267
+4    liegen  0.021082
+5    direkt  0.020641
+6    suchen  0.020607
+7    person  0.019227
+8  befinden  0.018281
+9  entfernt  0.017532
+                        term     tfidf
+0            prenzlauer berg  0.012642
+1            fully furnished  0.007785
+2                  küche bad  0.007551
+3             voll möblieren  0.007408
+4  öffentlich verkehrsmittel  0.007113
+5          voll ausgestattet  0.007092
+6          bett schreibtisch  0.007062
+7         ausgestattet küche  0.006857
+8           tempelhofer feld  0.006396
+9                hoch decken  0.006232</code></pre>
+</div>
+</div>
+<div id="2a0182bf" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>stopword_list <span class="op">=</span> STOPWORDS.union(STOP_EXTRA)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># TF-IDF → mean weight per term</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> TfidfVectorizer(ngram_range<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>), min_df<span class="op">=</span><span class="dv">5</span>, max_df<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> v.fit_transform(df_nlp[<span class="st">"text_lem"</span>])</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> np.asarray(X.mean(axis<span class="op">=</span><span class="dv">0</span>)).ravel()</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>terms <span class="op">=</span> v.get_feature_names_out()</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>freq <span class="op">=</span> {t: <span class="bu">float</span>(w) <span class="cf">for</span> t, w <span class="kw">in</span> <span class="bu">zip</span>(terms, weights)}</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>wc <span class="op">=</span> WordCloud(width<span class="op">=</span><span class="dv">1400</span>, height<span class="op">=</span><span class="dv">900</span>, background_color<span class="op">=</span><span class="st">"white"</span>, stopwords<span class="op">=</span>stopword_list)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> wc.generate_from_frequencies(freq)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>plt.imshow(img)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"WG Ads — TF-IDF Word Cloud (unigrams)"</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="flat_ad_details_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="92391a7f" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lsa_topics(texts, n_topics<span class="op">=</span><span class="dv">8</span>, n_terms<span class="op">=</span><span class="dv">10</span>, min_df<span class="op">=</span><span class="dv">5</span>, max_df<span class="op">=</span><span class="fl">0.6</span>, ngram<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">2</span>)):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> TfidfVectorizer(ngram_range<span class="op">=</span>ngram, min_df<span class="op">=</span>min_df, max_df<span class="op">=</span>max_df)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> v.fit_transform(texts)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    svd <span class="op">=</span> TruncatedSVD(n_components<span class="op">=</span>n_topics, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> svd.fit_transform(X)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> svd.components_</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    terms <span class="op">=</span> v.get_feature_names_out()</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    topics <span class="op">=</span> []</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(n_topics):</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> np.argsort(H[k])[::<span class="op">-</span><span class="dv">1</span>][:n_terms]</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        topics.append({<span class="st">"topic"</span>: k, <span class="st">"terms"</span>: <span class="st">", "</span>.join(terms[i] <span class="cf">for</span> i <span class="kw">in</span> idx)})</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    doc_topics <span class="op">=</span> W.argmax(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(topics), pd.Series(doc_topics, name<span class="op">=</span><span class="st">"topic"</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>topics_df, df_nlp[<span class="st">"topic_lsa"</span>] <span class="op">=</span> lsa_topics(df_nlp[<span class="st">"text_lem"</span>], n_topics<span class="op">=</span><span class="dv">6</span>, n_terms<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(topics_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   topic                                              terms
+0      0  ruhig, schön, küche, from, direkt, suchen, per...
+1      1  our, your, flat, from, can, community, have, t...
+2      2  community, our, hinaus, netzwerk, network, mor...
+3      3  mal, wichtig, leben, that, mensch, but, kochen...
+4      4  prenzlauer, berg, prenzlauer berg, allee, schö...
+5      5  august, neukölln, september, kreuzberg, schön,...</code></pre>
+</div>
+</div>
+<div id="6bd370cf" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SentenceTransformer(<span class="st">"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>emb <span class="op">=</span> model.encode(texts, show_progress_bar<span class="op">=</span><span class="va">True</span>, normalize_embeddings<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>um <span class="op">=</span> umap.UMAP(n_neighbors<span class="op">=</span><span class="dv">15</span>, min_dist<span class="op">=</span><span class="fl">0.05</span>, n_components<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> um.fit_transform(emb)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>cl <span class="op">=</span> hdbscan.HDBSCAN(min_cluster_size<span class="op">=</span><span class="dv">30</span>, min_samples<span class="op">=</span><span class="dv">10</span>, metric<span class="op">=</span><span class="st">"euclidean"</span>).fit(emb)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>df_nlp[<span class="st">"cluster_hdb"</span>] <span class="op">=</span> cl.labels_  <span class="co"># -1 = noise</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect clusters</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_nlp[<span class="st">"cluster_hdb"</span>].value_counts().head(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>2025-08-19 14:25:55,237 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-19 14:25:55,239 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Batches: 100%|██████████| 118/118 [04:04&lt;00:00,  2.07s/it]
+c:\Users\Yannik\AppData\Local\pypoetry\Cache\virtualenvs\wggesuchtstats-9Efq763c-py3.12\Lib\site-packages\umap\umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+c:\Users\Yannik\AppData\Local\pypoetry\Cache\virtualenvs\wggesuchtstats-9Efq763c-py3.12\Lib\site-packages\sklearn\utils\deprecation.py:132: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+c:\Users\Yannik\AppData\Local\pypoetry\Cache\virtualenvs\wggesuchtstats-9Efq763c-py3.12\Lib\site-packages\sklearn\utils\deprecation.py:132: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>cluster_hdb
+ 0    2632
+-1    1075
+ 1      40
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div id="5bdf2b0c" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cluster_keywords(texts, labels, topn<span class="op">=</span><span class="dv">12</span>):</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> []</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> lab <span class="kw">in</span> <span class="bu">sorted</span>(<span class="bu">set</span>(labels)):</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> lab <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>: <span class="cf">continue</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        subset <span class="op">=</span> [t <span class="cf">for</span> t,l <span class="kw">in</span> <span class="bu">zip</span>(texts, labels) <span class="cf">if</span> l <span class="op">==</span> lab]</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        tt <span class="op">=</span> top_tfidf_terms(subset, n<span class="op">=</span>topn, ngram<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        out.append((lab, <span class="st">", "</span>.join(tt.term.tolist())))</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(out, columns<span class="op">=</span>[<span class="st">"cluster"</span>,<span class="st">"keywords"</span>])</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cluster_keywords(df_nlp[<span class="st">"text_lem"</span>].tolist(), df_nlp[<span class="st">"cluster_hdb"</span>].tolist()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   cluster                                           keywords
+0        0  ruhig, schön, küche, liegen, balkon, direkt, s...
+1        1  friedrichshain, kreuzberg, friedrichshain idea...</code></pre>
+</div>
+</div>
+<div id="f7614ec3" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>MODEL <span class="op">=</span> <span class="st">"lxyuan/distilbert-base-multilingual-cased-sentiments-student"</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>torch.set_num_threads(<span class="dv">3</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>tok <span class="op">=</span> AutoTokenizer.from_pretrained(MODEL)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>mdl <span class="op">=</span> AutoModelForSequenceClassification.from_pretrained(MODEL)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> TextClassificationPipeline(model<span class="op">=</span>mdl, tokenizer<span class="op">=</span>tok, device<span class="op">=</span>device, return_all_scores<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fast_sentiment(texts, batch_size<span class="op">=</span><span class="dv">64</span>, max_len<span class="op">=</span><span class="dv">256</span>, desc<span class="op">=</span><span class="st">"Sentiment"</span>):</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    labels, scores <span class="op">=</span> [], []</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    n_batches <span class="op">=</span> (<span class="bu">len</span>(texts) <span class="op">+</span> batch_size <span class="op">-</span> <span class="dv">1</span>) <span class="op">//</span> batch_size</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> tqdm(<span class="bu">range</span>(n_batches), desc<span class="op">=</span>desc):</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>        batch <span class="op">=</span> texts[i<span class="op">*</span>batch_size:(i<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>batch_size]</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>        out <span class="op">=</span> pipe(batch, truncation<span class="op">=</span><span class="va">True</span>, max_length<span class="op">=</span>max_len)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> row <span class="kw">in</span> out:</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>            best <span class="op">=</span> <span class="bu">max</span>(row, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">"score"</span>])</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>            labels.append(best[<span class="st">"label"</span>].lower())</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>            scores.append(<span class="bu">float</span>(best[<span class="st">"score"</span>]))</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> labels, scores</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>df_nlp[<span class="st">"sentiment"</span>], df_nlp[<span class="st">"sentiment_score"</span>] <span class="op">=</span> fast_sentiment(df_nlp[<span class="st">"text"</span>].tolist())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2025-08-19 16:08:27,175 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Device set to use cpu
+c:\Users\Yannik\AppData\Local\pypoetry\Cache\virtualenvs\wggesuchtstats-9Efq763c-py3.12\Lib\site-packages\transformers\pipelines\text_classification.py:111: UserWarning: `return_all_scores` is now deprecated,  if want a similar functionality use `top_k=None` instead of `return_all_scores=True` or `top_k=1` instead of `return_all_scores=False`.
+  warnings.warn(
+Sentiment: 100%|██████████| 59/59 [21:20&lt;00:00, 21.70s/it]</code></pre>
+</div>
+</div>
+<div id="11bab19e" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_nlp[<span class="st">"sentiment"</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>).mul(<span class="dv">100</span>).<span class="bu">round</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>sentiment
+positive    82.7
+negative    16.2
+neutral      1.1
+Name: proportion, dtype: float64</code></pre>
+</div>
+</div>
+<div id="41f0fb61" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">"display.max_colwidth"</span>, <span class="va">None</span>)  <span class="co"># no truncation</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get most positive (highest score where label=positive)</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> df_nlp[df_nlp[<span class="st">"sentiment"</span>]<span class="op">==</span><span class="st">"positive"</span>].sort_values(<span class="st">"sentiment_score"</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">5</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># get most negative (highest score where label=negative)</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>neg <span class="op">=</span> df_nlp[df_nlp[<span class="st">"sentiment"</span>]<span class="op">==</span><span class="st">"negative"</span>].sort_values(<span class="st">"sentiment_score"</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">5</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># select just relevant fields</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>compare <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Most Positive"</span>: pos[<span class="st">"text"</span>].values,</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Most Negative"</span>: neg[<span class="st">"text"</span>].values</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>display(compare)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Most Positive</th>
+<th data-quarto-table-cell-role="th">Most Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>schönes WG- Zimmer in Berlin Prenzlauerberg, befristet schönes, helles Zimmer in Berlin Prenzlauer Berg mit Balkon</td>
+<td>Wilmersdorf ist ruhig und angesagt! Das Zimmer ist möbliert. Die öffentlichen Verkehrsmittel sind fussläufig in 3 Minuten erreichbar. Die Supermärkte in 5 Minuten.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Room in Prenzlauer Berg Very nice and bright room, king size bed, plants, table and balcony\nVery well located in the lively neighborhood of Prenzlauer Berg\nKitchen</td>
+<td>Privatzimmer 24 qm in Tempelhof nahe Ringbahn an eine Frau im Notfall auch früher möglich aber auch etwas länger Zeit punkt ist auch flexibel Das Zimmer ist groß, hell und sehr ruhig es gibt 2 Zimmer und die Wohnung ist im 2. OG\nIn dem sehr Grünen Bezirk ist es auch an den Wochenenden sehr leicht möglich einen Einkauf zu erledigen, auch ist die Nähe zum Ring Bahnhof eine Garantie leicht überall in Berlin hin zu kommen\nIch bin ein Mann und 60 Jahre jung, durch eine Krankheit ( die nicht ansteckend ist ) , bin ich meist zuhause, versuche aber auch dennoch etwas zu finden das mich zeitweise beschäftigt. Ich suche wegen der doch sehr vielen schlechten Erfahrungen mit Männern, auch wenn es anders besprochen wurde lieber eine Weibliche Mitbewohnerin.\nKontakt ist jederzeit möglich über die Nachrichtenfunktion hier. Da es ja immer erst einmal ein Versuch des Zusammen Lebens ist kann auch etwas langfristiges daraus entstehen wenn man sich versteht</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>schönes helles Zimmer schönes helles Zimmer in Berlin Reinickendorf mit guter Infrastruktur.Die Wohnung liegt im Norden von Betlin.U Bahn Rathaus Reikickendorf ist 10 Minuten Fussläufig entfernt.</td>
+<td>Untermiete 12.09.-27.10.25 in Berlin Weißensee 20qm mit 2 fenster und großem bett. \n Schriebtisch und sessel und viele pflanzen sind auch da - ich raume naturlich alles vorher aus und mach das fur dich nochmal schick - gleiches gilt für bad und küche\nRuhes und grunes weisensee \n M2 - S prenzlauer Allee (5min) \n M2 - Alexanderplatz (20min) \n\n - kannst aber auch ein rad von mir fur die zeit haben\nMein mitbewohner ist ruhig und entspannt und korrekt. Er hat auch ein Veto recht, da er die zeit da ist.\nZeit und kohle ist verhandlungssache</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>schön wg ab 15.august Hey! \n Ich verlasse meine schöne kleine Wohnung, um nach Frankreich zu ziehen und zu studieren. \n 🔹Das Zimmer ist ca. 20m2, mit einem Verbindungsbalkon zum anderen Zimmer, Isa's, die immer sehr positiv und großartig ist, um ein Glas Wein und einen guten Chat mit zu teilen. \n Es gibt auch Mira, die gerne Musik hören und machen und immer ein großes Lachen ist. \n 🔺Das Zimmer ist ab 15. August verfügbar! 🔺 \n Die Wohnung befindet sich direkt im Zentrum von Berlin, in der Nähe aller Annehmlichkeiten! \n 🔹Nur 8 Gehminuten vom Alexanderplatz und 5 Minuten vom U-Bahnhof jannowitzbrücke entfernt. \n 🔹Several Supermärkte direkt auf der Straße. \n 🔸Senden Sie mir eine Einführung zu sich selbst, und wir arrangieren einen Besuch zusammen! \n\n Freuen Sie sich auf eine Anhörung von Ihnen (:\n \n\n Heyy there 🌞! \n I'm leaving my lovely little flat-share to move back to France and study. \n 🔹The room is about 20m2, with a connecting balcony to the other room, Isa's, who's always very positive and great to share a glass of wine and a good chat with. \n There's also mira, who loves listening and making music, and is always a great laugh. \n 🔺The room is available from August 15! 🔺 \n The apartment is located right in the center of Berlin, close to all amenities! \n 🔹Just an 8-minute walk from Alexanderplatz and 5 minutes from the jannowitzbrücke subway station. \n 🔹Several supermarkets right down the street. \n 🔸Send me an introduction to yourself, and we'll arrange a visit together! \n\n Looking forward to hearing from you (:\n \n\nText automatisch übersetzt -\nOriginal anzeigen\nÜbersetzung anzeigen</td>
+<td>Wohnen nähe Volkspark Humboldthain / All-inclusive Zimmer: \r\n - Boxspringbett \r\n - großer Kleiderschrank \r\n - Smart-TV \r\n - Schreibtisch \r\n - Balkon \n\r\n Küche: \r\n - Einbauküche mit Herd und Ofen \r\n - Geschirrspüler \r\n - Waschmaschine \r\n - großer Kühlschrank mit Gefrierkombination \r\n - Toaster, Kaffeemaschine etc. \n\r\n Badezimmer: \r\n - Duschwanne \r\n - WC \r\n - Wäschespinne \r\n - Bügelbrett &amp; Bügeleisen \n\n\n\r\n Room: \r\n - Box spring bed \r\n - large closet \r\n - smart TV \r\n - desk \r\n - balcony \n\r\n Kitchen: \r\n - Fitted kitchen with stove and oven \r\n - dishwasher \r\n - washing machine \r\n - large fridge with freezer combination \r\n - Toaster, coffee machine etc. \n\r\n Bathroom: \r\n - Shower tray \r\n - WC \r\n - rotary dryer \r\n - Ironing board &amp; iron\nDas Objekt liegt aufstrebenden Ortsteil Gesundbrunnen, profitieren vom Ortsteil Mitte. Die Lage ist durch den Flair eines lebendigen und einfachen Anwohner geprägt, das eine angenehme Wohnatmosphäre bietet. \n Das ist nicht gut. Sie von einer guten Nahverkehrsanbindung: Die U-Bahnlinie 9 ist fußläufig innerhalb von ca. 8 erreichbar, was eine schnelle Verbindung ins Stadtzentrum und zu weiteren Teilen ermöglicht. Einrichtungen sich mehrere Bushaltestellen in der Nähe, mit den Linien M27, 147 und 255 genießen Sie bequem in allen Teilen der Hauptstadt. \n In der näheren Umgebung finden Sie zahlreiche Einkaufsmöglichkeiten, darunter Supermarktketten mit guten Parkmöglichkeiten, die den täglichen Bedürfnissen anpassen. vielfältige Restaurants, Cafés und Dienstleistungsangebote in der Nähe vorhanden. \n Für Erholung und Freizeit bieten sich die nahegelegenen Flächen Grün und Parks an: Der Volkspark Humboldthain mit seinem großen Parkgelände, den Wasserflächen und dem bekannten Flakturm ist nur einige Minuten entfernt und lädt zu Spaziergänge, Jogging oder Picknicks ein. Auch der Schönhauser Park sowie der Gleisdreieckpark sind gut erreichbar und bieten vielfältige Möglichkeiten für Freizeitaktivitäten im Grünen. \n Die Nähe zu diesen Parks macht die Lage besonders lebenswert und bietet eine schöne Balance zwischen urbanem Leben und Natur. \n\n\n\n Das Apartment befindet sich im ankommenden Stadtteil Gesundbrunnen, direkt neben dem Stadtteil Mitte. Die Lage zeichnet sich durch das Flair einer lebhaften und dennoch ruhigen Wohngegend aus, die eine angenehme Wohnatmosphäre bietet. \n Gleichzeitig profitieren Sie von ausgezeichneten lokalen Verkehrsverbindungen: Die U-Bahnlinie 9 ist zu Fuß von ca. 8 Minuten, eine schnelle Verbindung zum Stadtzentrum und anderen Teilen der Stadt. Es gibt auch mehrere Bushaltestellen in der Nähe, mit den Linien M27, 147 und 255 bietet einfachen Zugang zu allen Teilen der Hauptstadt. \n In der unmittelbaren Umgebung finden Sie zahlreiche Einkaufsmöglichkeiten, darunter Supermarktketten mit guten Parkplätzen, die den täglichen Einkauf bequem machen. Es gibt auch verschiedene Restaurants, Cafés und Service-Outlets in der Nähe. \n Die nahegelegenen Grünflächen und Parks sind ideal für Erholung und Freizeit: Der Volkspark Humboldthain mit seiner großen Parkanlage, Wasseranlagen und der berühmte Flakturm ist nur wenige Minuten entfernt und ist ideal für Spaziergänge, Joggen oder Picknicks. Der Schönhauser Park und der Gleisdreieckpark sind ebenfalls leicht zu erreichen und bieten eine breite Palette an Freizeitaktivitäten auf dem Land. \n Die Nähe zu diesen Parks macht die Lage besonders lebendig und bietet eine schöne Balance zwischen urbanem Leben und Natur.\n \n\n Das Objekt liegt im aufstrebenden Ortsteil Gesundbrunnen, unmittelbar benachbart zum Ortsteil Mitte. Die Lage ist durch den Flair eines lebendigen und dennoch ruhigen Anwohnergebietes geprägt, das eine angenehme Wohnatmosphäre bietet. \r\n Gleichzeitig profitieren Sie von einer ausgesprochen guten Nahverkehrsanbindung: Die U-Bahnlinie 9 ist fußläufig innerhalb von ca. 8 Minuten erreichbar, was eine schnelle Verbindung ins Stadtzentrum und zu weiteren Stadtteilen ermöglicht. Zudem befinden sich mehrere Bushaltestellen in der Nähe, mit den Linien M27, 147 und 255 gelangen Sie bequem in alle Teile der Hauptstadt. \r\n In der näheren Umgebung finden Sie zahlreiche Einkaufsmöglichkeiten, darunter Supermarktketten mit guten Parkmöglichkeiten, die den täglichen Einkauf bequem machen. Zudem sind diverse Restaurants, Cafés und Dienstleistungsangebote in der Nähe vorhanden. \r\n Für Erholung und Freizeit bieten sich die nahegelegenen Grünflächen und Parks an: Der Volkspark Humboldthain mit seinem großen Parkgelände, den Wasserflächen und dem bekannten Flakturm ist nur wenige Minuten entfernt und lädt zu Spaziergängen, Jogging oder Picknicks ein. Auch der Schönhauser Park sowie der Gleisdreieckpark sind gut erreichbar und bieten vielfältige Möglichkeiten für Freizeitaktivitäten im Grünen. \r\n Die Nähe zu diesen Parks macht die Lage besonders lebenswert und bietet eine schöne Balance zwischen urbanem Leben und Natur. \n\n\n\r\n The apartment is located in the up-and-coming district of Gesundbrunnen, directly adjacent to the Mitte district. The location is characterized by the flair of a lively yet quiet residential area that offers a pleasant living atmosphere. \r\n At the same time, you benefit from excellent local transport connections: The subway line 9 is within walking distance of approx. 8 minutes, providing a quick connection to the city center and other parts of the city. There are also several bus stops nearby, with the M27, 147 and 255 lines providing easy access to all parts of the capital. \r\n In the immediate area, you will find numerous shopping facilities, including supermarket chains with good parking facilities, which make daily shopping convenient. There are also various restaurants, cafés and service outlets nearby. \r\n The nearby green spaces and parks are ideal for recreation and leisure: Volkspark Humboldthain with its large park area, water features and the famous flak tower is just a few minutes away and is ideal for walks, jogging or picnics. Schönhauser Park and Gleisdreieckpark are also within easy reach and offer a wide range of leisure activities in the countryside. \r\n The proximity to these parks makes the location particularly liveable and offers a nice balance between urban life and nature.\n \n\nText automatisch übersetzt -\nOriginal anzeigen\nÜbersetzung anzeigen\nDas Zimmer befindet sich in einer ca. 63 m² großen Wohnung im 2. OG eines modernen Neubaus in Wedding. \r\n Dein neues Zuhause ist vollständig ausgestattet und wird all-inclusive vermietet. \n\r\n Der Mietpreis setzt sich aus den Kosten für die Wohnräume und die Möblierung zusammen. Des Weiteren sind die Kosten für alle Neben-, Heiz- und Warmwasserkosten sowie die Stromkosten enthalten. Ein 200.000er Internetvertrag ist bereits abgeschlossen und inklusive. Wir übernehmen außerdem die Beitragszahlungen an die GEZ. \n\r\n Gerne stehen wir Ihnen, nach Vertragsabschluss für alle Probleme 10 Stunden Wochentags zur Verfügung. \n\n\n\r\n The room is located in an approx. 63 m² apartment on the 2nd floor of a modern new building in Wedding. \r\n Your new home is fully furnished and is rented all-inclusive. \n\r\n The rent is made up of the costs for the living space and furnishings. It also includes all utilities, heating and hot water costs as well as electricity. A 200,000 internet contract has already been concluded and is included. We also pay the GEZ contributions. \n\r\n We will be happy to help you with any problems 10 hours a week after the contract has been signed.\nDie Mietdauer beläuft sich auf 6 bis 11 Monate. \n\r\n Alle Angaben in diesem Exposé (Objektbeschreibung, Abmessungen, Preisangaben etc.) beruhen auf Angaben des Eigentümers und erfolgen ohne Gewähr. \n\r\n Diese Wohnung wird nur für den vorübergehenden Gebrauch zur Verfügung gestellt. \n\n\n\r\n The rental period is between 6 and 11 months. \n\r\n All information in this exposé (property description, dimensions, price details, etc.) is based on information provided by the owner and is given without guarantee. \n\r\n This apartment is only made available for temporary use.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>schönes zimmer NUR FÜR FRAUEN Linda habitación con jardín . \r\n Schönes Zimmer mit Große garten direkt am Frankfurter alle Boxagener Kiez, Kaffes Restaurants, Einkauf Möglichkeit ganz in der nähe</td>
+<td>Zimmer in Lankwitz (August/September) Da ich im August &amp; September nicht in Berlin sein werde, vermiete ich mein Zimmer unter. Es ist möbliert (Bett, Schreibtisch, Stuhl, Schrank, WLAN), Bad &amp; Küche werden mit einer weiteren Frau geteilt.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="063a27f4" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> quick_ner_counts(texts, topn<span class="op">=</span><span class="dv">20</span>):</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    cats <span class="op">=</span> []</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> doc <span class="kw">in</span> nlp.pipe(texts, batch_size<span class="op">=</span><span class="dv">64</span>):</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> e <span class="kw">in</span> doc.ents:</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> e.label_ <span class="kw">in</span> {<span class="st">"LOC"</span>,<span class="st">"PER"</span>,<span class="st">"ORG"</span>,<span class="st">"MISC"</span>,<span class="st">"DATE"</span>,<span class="st">"MONEY"</span>}:</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>                cats.append((e.text.lower(), e.label_))</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> pd.DataFrame(cats, columns<span class="op">=</span>[<span class="st">"ent"</span>,<span class="st">"label"</span>]).value_counts().reset_index(name<span class="op">=</span><span class="st">"count"</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s.groupby(<span class="st">"label"</span>).head(topn)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>ner_top <span class="op">=</span> quick_ner_counts(df_nlp[<span class="st">"text"</span>].head(<span class="dv">5000</span>))  <span class="co"># sample for speed</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ner_top.head(<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
